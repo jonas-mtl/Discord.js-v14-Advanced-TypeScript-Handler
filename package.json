@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "ascii-table": "^0.0.9",
+    "axios": "^0.27.2",
+    "chalk": "^5.0.1",
+    "discord.js": "^14.1.2",
+    "mongoose": "^6.5.1",
+    "ms": "^2.1.3"
+  },
+  "name": "tshandler",
+  "description": "Discord.js V.14 handler for TypeScript.",
+  "version": "1.2.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "nodemon": "nodemon dist/index.js",
+    "dev": "tsc && node dist/index.js",
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^18.6.4",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  },
+  "author": "Jonas#1713",
+  "license": "MIT"
+}
