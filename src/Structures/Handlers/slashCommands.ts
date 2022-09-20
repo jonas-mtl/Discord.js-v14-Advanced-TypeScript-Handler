@@ -18,7 +18,7 @@ export default class SlashCommandsHandler {
   constructor() {}
   public async loadSlashCommands(client: BaseClient, reloading?: boolean) {
     let CmdArray: any[] = [];
-    let DevArray: any[] = [];
+    let Deletray: any[] = [];
 
     const CommandsTable = new AsciiTable().setHeading('⠀⠀⠀⠀⠀', '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Slash Commands⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀', '⠀⠀Status⠀⠀').setBorder('┋', '═', '●', '●').setAlign(2, AsciiTable.CENTER);
     const CmdsDir = await PG(`${process.cwd()}/dist/SlashCommands/*/*{.ts,.js}`);
@@ -31,7 +31,7 @@ export default class SlashCommandsHandler {
         const command: SlashCommand = (await import(`${pathToFileURL(commandPath)}`)).default;
 
         if (file.endsWith('.dev.ts') || file.endsWith('.dev.js')) {
-          DevArray.push(command.data.toJSON());
+          Deletray.push(command.data.toJSON());
 
           client.slashCommands.set(command.data.name, command);
         } else {
@@ -40,7 +40,7 @@ export default class SlashCommandsHandler {
         }
         client.application?.commands.set(CmdArray);
         client.config.DevGuilds.forEach(async (guild) => {
-          await client.guilds.cache.get(guild.id)?.commands.set(DevArray);
+          await client.guilds.cache.get(guild.id)?.commands.set(Deletray);
         });
       })
     );
@@ -55,7 +55,7 @@ export default class SlashCommandsHandler {
       try {
         if (client.config.DEVELOPMENT) {
           await rest.put(Routes.applicationGuildCommands(client.config.CLIENT_ID, client.config.DevGuilds[0].id), {
-            body: [...CmdArray, ...DevArray],
+            body: [...CmdArray, ...Deletray],
           });
           logger.info(`Dev mode • Slash Commands registered for guild "${client.config.DevGuilds[0].name}"`);
         } else {
@@ -63,7 +63,7 @@ export default class SlashCommandsHandler {
             body: CmdArray,
           });
           await rest.put(Routes.applicationGuildCommands(client.config.CLIENT_ID, client.config.DevGuilds[0].id), {
-            body: DevArray,
+            body: Deletray,
           });
           logger.info(`Production mode • Slash Commands registered globally`);
         }

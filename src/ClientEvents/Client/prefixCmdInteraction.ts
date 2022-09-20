@@ -78,7 +78,7 @@ const event: ClientEvent = {
         embeds: [userErrorMessage],
       });
 
-    var errorMessage: string = '';
+    let errorMessage: string = '';
 
     await Promise.all(
       args.map(async (currentArg: any, i: number) => {

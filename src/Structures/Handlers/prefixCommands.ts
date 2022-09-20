@@ -15,7 +15,7 @@ const logger = new ConsoleLogger();
 export default class PrefixCommandsHandler {
   constructor() {}
   public async loadPrefixCommands(client: BaseClient) {
-    var CommandsTable = new AsciiTable().setHeading('⠀⠀⠀⠀⠀', '⠀⠀⠀⠀⠀⠀⠀⠀⠀Prefix Commands⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀', '⠀⠀Status⠀⠀').setBorder('┋', '═', '●', '●').setAlign(2, AsciiTable.CENTER);
+    let CommandsTable = new AsciiTable().setHeading('⠀⠀⠀⠀⠀', '⠀⠀⠀⠀⠀⠀⠀⠀⠀Prefix Commands⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀', '⠀⠀Status⠀⠀').setBorder('┋', '═', '●', '●').setAlign(2, AsciiTable.CENTER);
     const CmdsDir = await PG(`${process.cwd()}/dist/PrefixCommands/*/*{.ts,.js}`);
     await Promise.all(
       CmdsDir.map(async (file, i) => {

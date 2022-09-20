@@ -8,16 +8,16 @@ export default class ConsoleLogger {
   }
 
   private _getLogOrigin() {
-    var filename: any;
+    let filename: any;
 
-    var _pst = Error.prepareStackTrace;
+    let _pst = Error.prepareStackTrace;
     Error.prepareStackTrace = function (err, stack) {
       return stack;
     };
     try {
-      var err: any = new Error();
-      var callerfile: string;
-      var currentfile: string;
+      let err: any = new Error();
+      let callerfile: string;
+      let currentfile: string;
 
       currentfile = err.stack.shift().getFileName();
 
