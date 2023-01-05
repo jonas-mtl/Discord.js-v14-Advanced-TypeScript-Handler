@@ -157,7 +157,7 @@ options: {
 
 - Add a **[GitHub Star](https://github.com/JonasThierbach/Discord.js-v14-Typescript-Handler)** to the project _& [Amit Kumar's Projects](https://github.com/AmitKumarHQ?tab=repositories)_.
 - Please give proper credits when you use the Handler, especially if you want to edit and post to public.
-- Add me on Discord pleasee _(Im alone, searching some Dev friends and someone to collab with me)_.
+- Add me on Discord for feedback & questions
 
 <a href="https://www.producthunt.com/posts/create-go-app?utm_source=badge-review&utm_medium=badge&utm_souce=badge-create-go-app#discussion-body" target="_blank"><img src="https://discord.c99.nl/widget/theme-3/783252406753689601.png" alt="Discord Profile"  /></a>
 
